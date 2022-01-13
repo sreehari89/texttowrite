@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>
+        Show the Copied Text
+     </button>
+    <p id="clipboard-paste"></p>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            let pasteButton = document.getElementsByTagName('button')[0];
+            pasteButton.addEventListener('click', function () {
+                navigator.clipboard
+                    .readText()
+                    .then(
+                        cliptext =>
+                            (document.getElementById('clipboard-paste').innerText = cliptext),
+                            err => console.log(err)
+                    );
+            });
+    </script>
+</body>
+</html>
